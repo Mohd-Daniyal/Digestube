@@ -1,68 +1,66 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Yoummariser</title>
-        <style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Digestube</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <img src="images/icon48.png" alt="" width="50" height="50" />
+        </span>
+        <span class="wordmark">Digestube</span>
+      </div>
+    </header>
 
-            h1 {
-                text-align: center;
-            }
-            body {
-                background-color: lightgray;
-                width: max-content;
-                max-width: 800px;
-            }
-            button {
-                background-color: red;
-                font-family: Geneva, Verdana, sans-serif;
-                color: white;
-                border-radius: 8px;
-                width: max-content;
-                height: max-content;
-                padding: 10px;
-                font-size: large;
-                margin: auto;
-                display: block;
-                border-color: coral;
-                border-radius: 20px;
-            }
-            button[disabled] {
-                background-color: lightcoral;
-                font-family: Geneva, Verdana, sans-serif;
-                color: white;
-                border-radius: 8px;
-                width: max-content;
-                height: max-content;
-                padding: 10px;
-                font-size: large;
-                margin: auto;
-                display: block;
-                border-color: lightpink;
-                border-radius: 20px;
-            }
-            button:hover{
-                background-color: crimson;
-            }
-            p {
-                background-color: lightgray;
-                border: 1px solid #ccc;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-                padding: 20px;
-                border-radius: 8px;
-                max-width: 300px;
-                text-align: center;
-                font-family: Arial, sans-serif;
-                font-size: 16px;
-                color: #222;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <h1>Yoummarizer</h1>
-        <button id="summarise" type="button">Summarize</button>
-        <br/>
-        <p id="output"></p>
-        <script src="popup.js"></script>
-    </body>
+    <main id="view-home" class="view">
+      <p class="video-title" id="videoTitle"></p>
+      <button id="summarizeBtn" class="cta">
+        <span>Summarize</span>
+        <svg class="bolt" viewBox="0 0 24 24" width="16" height="16">
+          <path fill="currentColor" d="M13 2 3 14h7l-1 8 11-14h-7l1-6z" />
+        </svg>
+      </button>
+      <p class="hint" id="homeHint">
+        Open a YouTube video, then hit Summarize.
+      </p>
+    </main>
+
+    <main id="view-loading" class="view hidden">
+      <div class="pulse-bolt">
+        <svg viewBox="0 0 24 24" width="28" height="28">
+          <path fill="currentColor" d="M13 2 3 14h7l-1 8 11-14h-7l1-6z" />
+        </svg>
+      </div>
+      <p class="loading-label" id="loadingLabel">Reading captions&hellip;</p>
+    </main>
+
+    <main id="view-result" class="view hidden">
+      <div class="summary-card" id="summaryText"></div>
+      <div class="actions-row">
+        <button id="copyBtn" class="btn-secondary">Copy</button>
+        <button id="resetBtn" class="btn-secondary">New summary</button>
+      </div>
+      <p class="footnote">via Groq &middot; Llama 3.1 8B Instant</p>
+    </main>
+
+    <main id="view-error" class="view hidden">
+      <div class="error-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path
+            fill="currentColor"
+            d="M12 2 1 21h22L12 2zm0 6.5c.55 0 1 .45 1 1v4a1 1 0 1 1-2 0v-4c0-.55.45-1 1-1zM11 16h2v2h-2v-2z"
+          />
+        </svg>
+      </div>
+      <p class="error-message" id="errorMessage"></p>
+      <button id="errorActionBtn" class="cta">
+        <span id="errorActionLabel">Try again</span>
+      </button>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
 </html>

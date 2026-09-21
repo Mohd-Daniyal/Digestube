@@ -1,13 +1,14 @@
-{ 
+{
     "manifest_version": 3,
-    "name": "Yoummarizer",
-    "description": "Unlock Efficiency: Say goodbye to lengthy videos! Our Chrome extension summarizes YouTube content, providing you with quick insights and saving you time. Get the essence of a video in moments, so you can focus on what truly matters.",
-    "version": "1.0",
-    "permissions": ["activeTab", "declarativeContent"],
+    "name": "Digestube",
+    "description": "A Chrome extension that summarizes YouTube videos on demand — click the extension while watching a video, and get back a short, readable digest of what it's actually about.",
+    "version": "2.1",
+
+    "permissions": ["activeTab"],
     "host_permissions": ["http://127.0.0.1:5000/*"],
-    
+
     "action": {
-        "default_title": "Yoummarizer",
+        "default_title": "Digestube",
         "default_icon": {
             "16": "images/icon16.png",
             "48": "images/icon48.png",
